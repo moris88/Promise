@@ -7,13 +7,13 @@ interface Data {
 
 const chiamaPromise = async (type: TypePromise): Promise<void> => {
     type === 'myPromise' ? 
-        await myPromise()
+        await myPromise
         .then((data: Data) => {
             console.log(data)
         })
         .catch(error => console.error(error))
         .finally(() => {
-            console.log('esecuzione terminata myPromise')
+            console.log('\nesecuzione terminata myPromise')
         })
     :
         await myPromiseErr()
@@ -22,22 +22,21 @@ const chiamaPromise = async (type: TypePromise): Promise<void> => {
         })
         .catch(error => console.error(error))
         .finally(() => {
-            console.log('esecuzione terminata myPromiseErr')
+            console.log('\nesecuzione terminata myPromiseErr')
         })
 }
 
-const myPromise = (): Promise<Data> => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            const obj: Data =  {
-                nome: 'Maurizio',
-                cognome: 'Tolomeo',
-                eta: 33
-            }
-            resolve(obj)
-        }, 3000)
-    })
-}
+const myPromise: Promise<Data> = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        const obj: Data =  {
+            nome: 'Maurizio',
+            cognome: 'Tolomeo',
+            eta: 33
+        }
+        resolve(obj)
+    }, 3000)
+})
+
 
 const myPromiseErr = (): Promise<Error> => {
     return new Promise((resolve, reject) => {
@@ -47,13 +46,11 @@ const myPromiseErr = (): Promise<Error> => {
     })
 }
 
-;(() => {
-    chiamaPromise('myPromise') //eseguita per prima ma termina per ultima
-    chiamaPromise('myPromiseErr') //eseguita dopo ma termina prima
-    console.log('main terminato') //eseguita per ultima ma termina per prima
-})()
+chiamaPromise('myPromise') //eseguita per prima ma termina per ultima
+chiamaPromise('myPromiseErr') //eseguita dopo ma termina prima
+console.log('\nmain terminato') //eseguita per ultima ma termina per prima
 
-// (async () => {
+// ;(async () => {
 //     //esecuzione in serie
 //     await chiamaPromise('myPromise') 
 //     await chiamaPromise('myPromiseErr')
