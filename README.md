@@ -9,7 +9,7 @@ Sommario:
 
 ## Distinzioni tra funzione sincrona e asincrona
 
-Una normale funzione sincrona (callback) viene eseguito in un singolo thread cioe' il codice inizierà dall'inizio di un file ed verrà eseguito fino in fondo, ogni riga in ordine finché non arriva in fondo e si fermerà. Ad esempio, se una funzione impiega un po 'di tempo per essere eseguita o deve attendere qualcosa, nel frattempo si blocca tutto perché il codice sincrono può eseguire solo un'attività alla volta, attende fino a quando una determinata istruzione non è stata eseguita, quindi si sposta a quello successivo.
+Una normale funzione sincrona (callback) viene eseguita in un singolo thread cioe' il codice inizierà dall'inizio di un file ed verrà eseguito fino in fondo, ogni riga in ordine finché non arriva in fondo e si fermerà. Ad esempio, se una funzione impiega un po 'di tempo per essere eseguita o deve attendere qualcosa, nel frattempo si blocca tutto perché il codice sincrono può eseguire solo un'attività alla volta, attende fino a quando una determinata istruzione non è stata eseguita, quindi si sposta a quello successivo.
 In una funzione asincrona (async) viene eseguito su piu' thread cioe' il codice padre che chiama una funzione asincrona continua la sua serie di istruzioni mentre quella asincrona sta eseguendo le sue (parallelo).
 
 ## Cos'e' una Promise
@@ -51,7 +51,7 @@ La chiave finally invece agisce in ogni caso dopo then e catch (sostanzialmente 
 
 ## Key: async e await
 
-C'è una sintassi speciale per lavorare con le Promise in modo più comodo, chiamata "async/await". Per dichiarare che una funzione e' asincrona e utilizzera' le Promise allora va preceduto async a una funzione (function):
+C'è una sintassi speciale per lavorare con le Promise in modo più comodo, chiamata "async/await". Per dichiarare una funzione asincrona, che utilizzera' le Promise, essa va preceduta dalla key async:
 
     async function f() {
         return Promise.resolve(1);
