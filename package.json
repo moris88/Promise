@@ -4,6 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
+    "startjs": "cls && node js/main.js",
     "start": "cls && tsc && node server/main.js"
   },
   "author": "moris88",
