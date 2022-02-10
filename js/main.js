@@ -1,15 +1,8 @@
-type TypePromise = 'myPromise' | 'myPromiseErr'
-interface Data {
-    nome?: string
-    cognome?: string
-    eta?: number
-}
-
 //uso di then/catch e finally
-const chiamaPromise = async (type: TypePromise): Promise<void> => {
+const chiamaPromise = async (type) => {
     type === 'myPromise' ? 
         await myPromise
-        .then((data: Data) => {
+        .then((data) => {
             console.log(data)
         })
         .catch(error => console.error(error))
@@ -28,9 +21,9 @@ const chiamaPromise = async (type: TypePromise): Promise<void> => {
 }
 
 //creazione Promise come variabile
-const myPromise: Promise<Data> = new Promise((resolve, reject) => {
+const myPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
-        const obj: Data =  {
+        const obj =  {
             nome: 'Maurizio',
             cognome: 'Tolomeo',
             eta: 33
@@ -40,7 +33,7 @@ const myPromise: Promise<Data> = new Promise((resolve, reject) => {
 })
 
 //creazione Promise come funzione
-const myPromiseErr = (): Promise<Error> => {
+const myPromiseErr = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             reject(new Error('Si e\' presentato un errore!'))
@@ -52,7 +45,6 @@ const myPromiseErr = (): Promise<Error> => {
 chiamaPromise('myPromise') 
 chiamaPromise('myPromiseErr') 
 console.log('\nmain terminato') 
-
 
 //uso di async
 async function test() {
