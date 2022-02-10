@@ -1,8 +1,8 @@
 type TypePromise = 'myPromise' | 'myPromiseErr'
 interface Data {
-    nome: string
-    cognome: string
-    eta: number
+    nome?: string
+    cognome?: string
+    eta?: number
 }
 
 const chiamaPromise = async (type: TypePromise): Promise<void> => {
@@ -37,7 +37,6 @@ const myPromise: Promise<Data> = new Promise((resolve, reject) => {
     }, 3000)
 })
 
-
 const myPromiseErr = (): Promise<Error> => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -46,9 +45,20 @@ const myPromiseErr = (): Promise<Error> => {
     })
 }
 
-chiamaPromise('myPromise') //eseguita per prima ma termina per ultima
-chiamaPromise('myPromiseErr') //eseguita dopo ma termina prima
-console.log('\nmain terminato') //eseguita per ultima ma termina per prima
+chiamaPromise('myPromise') 
+chiamaPromise('myPromiseErr') 
+console.log('\nmain terminato') 
+
+
+// function async
+async function test() {
+    setTimeout(() => {
+        console.log('test')
+    }, 1000)
+}
+test().then(() => {
+    console.log('test2')
+})
 
 // ;(async () => {
 //     //esecuzione in serie
