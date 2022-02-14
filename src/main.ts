@@ -55,19 +55,35 @@ console.log('\nmain terminato')
 
 
 //uso di async
-async function test() {
-    setTimeout(() => {
-        console.log('test')
-    }, 1000)
-}
-test().then(() => {
-    console.log('test2')
-})
+// async function test() {
+//     setTimeout(() => {
+//         console.log('test')
+//     }, 1000)
+// }
+// test().then(() => {
+//     console.log('test2')
+// })
 
 //chiamate sincrone usando await con funzione anonima
-;(async () => {
-    //esecuzione in serie
-    await chiamaPromise('myPromise') 
-    await chiamaPromise('myPromiseErr')
-    console.log('main terminato') 
-})()
+// ;(async () => {
+//     //esecuzione in serie
+//     await chiamaPromise('myPromise') 
+//     await chiamaPromise('myPromiseErr')
+//     console.log('main terminato') 
+// })()
+
+// const promise1 = new Promise((resolve, reject) => {
+//     setTimeout(resolve, 100, 'promise1')
+// })
+
+// const promise2 = new Promise((resolve, reject) => {
+//     setTimeout(resolve, 200, 'promise2')
+// })
+
+// const promise3 = new Promise((resolve, reject) => {
+//     setTimeout(resolve, 300, 'promise3')
+// })
+
+// Promise.all([promise1, promise2, promise3]).then((values) => {
+//     console.log(values)
+// })
