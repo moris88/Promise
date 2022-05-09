@@ -1,4 +1,4 @@
-### PROMISE
+# PROMISE
 
 Sommario:
 - distinzioni tra funzione sincrona e asincrona
