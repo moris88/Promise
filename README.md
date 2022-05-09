@@ -49,6 +49,15 @@ Le Promise agiscono su due canali, il primo per la restituzione del risultato, i
 
 La chiave finally invece agisce in ogni caso dopo then e catch (sostanzialmente dopo un resolve o una reject).
 
+
+    asyncFunc()
+        .then(a => console.log('Risultato: ' + a))
+        .catch(a => console.log('Attenzione: ' + a));
+        .finally(() => {
+            console.log('\nesecuzione terminata')
+        })
+
+
 ## Key: async e await
 
 C'è una sintassi speciale per lavorare con le Promise in modo più comodo, chiamata "async/await". Per dichiarare una funzione asincrona, che utilizzera' le Promise, essa va preceduta dalla key async:
