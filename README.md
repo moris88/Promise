@@ -62,7 +62,7 @@ C'è una sintassi speciale per lavorare con le Promise in modo più comodo, chia
         return Promise.resolve(1);
     }
 
-    f().then(alert); // restituira' 1
+    f().then((data) => console.log(data); // 1
 
 La parola chiave await fa attendere a JavaScript fino a quando la promessa non si stabilizza e restituisce il risultato, va dichiarata solo dentro un async function:
 
